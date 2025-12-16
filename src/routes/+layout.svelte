@@ -10,3 +10,9 @@
 </svelte:head>
 
 {@render children()}
+
+<style>
+	:global(body) {
+		--at-apply: bg-zinc-50;
+	}
+</style>
