@@ -1,0 +1,6 @@
+import { createAuthClient } from 'better-auth/svelte';
+import { polarClient } from '@polar-sh/better-auth';
+
+export const auth = createAuthClient({
+	plugins: [polarClient()],
+});

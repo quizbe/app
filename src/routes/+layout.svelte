@@ -1,5 +1,5 @@
 <script lang="ts">
-	import favicon from '$lib/assets/favicon.svg';
+	import favicon from '$lib/assets/icon.svg';
 	import 'virtual:uno.css';
 
 	let { children } = $props();
@@ -7,6 +7,7 @@
 
 <svelte:head>
 	<link rel="icon" href={favicon} />
+	<title>Quizbe - Interactive learning all in one space</title>
 </svelte:head>
 
 {@render children()}

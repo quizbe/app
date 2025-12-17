@@ -1,9 +1,10 @@
+import type { Question } from '$lib/types';
 import { integer, sqliteTable, text } from 'drizzle-orm/sqlite-core';
 import { nanoid } from 'nanoid';
 
 export const quiz = sqliteTable('quiz', {
 	id: text().primaryKey().$defaultFn(nanoid),
-	title: text(),
+	title: text().notNull(),
 	authors: text({
 		mode: 'json',
 	})
@@ -14,7 +15,7 @@ export const quiz = sqliteTable('quiz', {
 	questions: text({
 		mode: 'json',
 	})
-		.$type<string[]>()
+		.$type<Question[]>()
 		.notNull(),
 });
 
