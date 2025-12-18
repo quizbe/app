@@ -5,7 +5,7 @@ import { DATABASE_URL, DATABASE_AUTH_TOKEN } from '$env/static/private';
 import { dev } from '$app/environment';
 
 if (!DATABASE_URL) throw new Error('DATABASE_URL is not set');
-if (!dev && DATABASE_AUTH_TOKEN) throw new Error('DATABASE_AUTH_TOKEN is not set');
+if (!dev && !DATABASE_AUTH_TOKEN) throw new Error('DATABASE_AUTH_TOKEN is not set');
 
 const client = createClient({ url: DATABASE_URL, authToken: DATABASE_AUTH_TOKEN });
 
