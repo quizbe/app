@@ -1,5 +1,5 @@
 <script lang="ts">
-	import favicon from '$lib/assets/icon.svg';
+	import favicon from '$lib/assets/favicon.svg';
 	import 'virtual:uno.css';
 
 	let { children } = $props();
@@ -13,7 +13,7 @@
 {@render children()}
 
 <style>
-	:global(body) {
+	/*:global(body) {
 		--at-apply: bg-zinc-50;
-	}
+	}*/
 </style>
