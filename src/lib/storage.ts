@@ -63,7 +63,7 @@ export async function loadQuiz(id: string) {
 
 	const { data } = await auth.getSession();
 	if (!data) return;
-	const result = await ofetch<Quiz[]>('/api/quizzes', {
+	const result = await ofetch<Quiz>(`/api/quizzes/${id}`, {
 		method: 'POST',
 	});
 	return result;

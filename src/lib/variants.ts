@@ -33,8 +33,20 @@ export const useButtonVariant = tv({
 
 export const useDialogVariant = tv({
 	slots: {
-		overlay: '',
-		content: '',
+		overlay: 'bg-white/75 backdrop-blur-sm fixed inset-0 grid place-items-center',
+		content: 'bg-white border border-zinc-200',
+	},
+	variants: {
+		size: {
+			xs: {},
+			sm: {},
+			md: {
+				overlay: 'p-4',
+				content: 'rounded-xl p-4',
+			},
+			lg: {},
+			xl: {},
+		},
 	},
 });
 

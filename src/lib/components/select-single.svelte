@@ -1,11 +1,11 @@
 <script lang="ts">
 	import { useSelectVariant } from '$lib/variants';
-	import { Select } from 'bits-ui';
+	import { Select, type SelectSingleRootProps } from 'bits-ui';
 	import type { Component } from 'svelte';
 	import type { ClassNameValue } from 'tailwind-merge';
 	import CaretUpDown from '~icons/ph/caret-up-down';
 
-	type Props = {
+	type Props = Omit<SelectSingleRootProps, 'type'> & {
 		value: string;
 		items: Array<{
 			value: string;
@@ -31,10 +31,11 @@
 		open = $bindable(false),
 		icon,
 		ui = {},
+		...rest
 	}: Props = $props();
 </script>
 
-<Select.Root bind:value bind:open type="single">
+<Select.Root {...rest} bind:value bind:open type="single">
 	<Select.Trigger
 		class={useSelectVariant().trigger({
 			size,

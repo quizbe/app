@@ -11,7 +11,17 @@ import {
 	VIDEO,
 	MATH,
 } from './questions';
+import Checks from '~icons/ph/check-square-offset';
+import PencilLine from '~icons/ph/pencil-line';
+import ChartScatter from '~icons/ph/chart-scatter';
+import Hand from '~icons/ph/hand';
+import CaretDown from '~icons/ph/caret-up-down-fill';
+import Columns from '~icons/ph/columns';
+import Video from '~icons/ph/video';
+import SubtractSquare from '~icons/ph/subtract-square';
+import MathOperations from '~icons/ph/math-operations';
 import type { Question } from '$lib/types';
+import type { Component } from 'svelte';
 
 export type QuestionsRecord = {
 	[K in Question['type']]: Extract<Question, { type: K }>;
@@ -77,3 +87,36 @@ export const BLANK_QUESTIONS: QuestionsRecord = {
 	video: { type: 'video', points: 1, time: 30, media: '', timestamps: [] },
 	math: { type: 'math', points: 1, time: 30, text: '', media: '', answer: '' },
 };
+
+export const ICONS_OF_TYPES: Record<Question['type'], Component> = {
+	multiple: Checks,
+	categorize: Columns,
+	drag: Hand,
+	dropdown: CaretDown,
+	match: SubtractSquare,
+	plot: ChartScatter,
+	type: PencilLine,
+	video: Video,
+	math: MathOperations,
+};
+
+export const LABEL_OF_TYPES: Record<Question['type'], string> = {
+	multiple: 'Multiple Choice',
+	categorize: 'Categorize',
+	drag: "Drag n' Drop",
+	dropdown: 'Dropdown',
+	match: 'Match',
+	type: 'Type Answer',
+	video: 'Video',
+	plot: 'Plot',
+	math: 'Math Response',
+};
+
+export const COLORS_OF_TYPES: { class: string; types: Question['type'][]; label: string }[] = [
+	{
+		label: 'Basic',
+		class: 'bg-svelte-50 text-svelte',
+		types: ['multiple', 'categorize', 'drag', 'dropdown', 'match', 'type', 'video'],
+	},
+	{ label: 'Math', class: 'bg-purple-50 text-purple', types: ['plot', 'math'] },
+];

@@ -7,7 +7,7 @@
 </script>
 
 <div class="h-18 p-4 sticky top-0 bg-white border-b border-zinc-200 flex overflow-hidden">
-	<a href="/" class="flex items-center h-full px-2">
+	<a href="/" class="">
 		<Logo class="h-8 text-svelte" />
 	</a>
 
