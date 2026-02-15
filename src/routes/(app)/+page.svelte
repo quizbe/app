@@ -13,7 +13,7 @@
 	import { resolve } from '$app/paths';
 	import Dropdown from '$lib/components/dropdown.svelte';
 	import Button from '$lib/components/button.svelte';
-	import { nanoid } from 'nanoid';
+	import { uid } from 'uid/secure';
 	import { watch } from 'runed';
 	import dayjs from 'dayjs';
 	import relative from 'dayjs/plugin/relativeTime';
@@ -140,7 +140,7 @@
 									quizzes.splice(idx + 1, 0, {
 										...quiz,
 										title: quiz.title + ' Copy',
-										id: nanoid(),
+										id: uid(),
 										created: Date.now(),
 										updated: Date.now(),
 									});

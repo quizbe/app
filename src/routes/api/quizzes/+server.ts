@@ -2,12 +2,12 @@ import { db } from '$lib/server/db';
 import { quiz } from '$lib/server/schema';
 import { error, json, text } from '@sveltejs/kit';
 import { eq, like } from 'drizzle-orm/sql';
-import { nanoid } from 'nanoid';
+import { uid } from 'uid/secure';
 
 export async function POST({ locals }) {
 	if (!locals.user) return error(401);
 
-	const quizzes = db.select().from(quiz).where(like(quiz.authors, locals.user.id));
+	const quizzes = await db.select().from(quiz).where(like(quiz.authors, locals.user.id));
 
 	return json(quizzes);
 }
@@ -15,7 +15,7 @@ export async function POST({ locals }) {
 export async function PUT(event) {
 	if (!event.locals.user) return error(401);
 
-	const id = nanoid();
+	const id = uid();
 	const res = await db.query.quiz.findFirst({ where: eq(quiz.id, id) });
 	if (res) return PUT(event);
 

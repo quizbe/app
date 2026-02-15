@@ -1,9 +1,9 @@
 import type { Question } from '$lib/types';
 import { integer, sqliteTable, text } from 'drizzle-orm/sqlite-core';
-import { nanoid } from 'nanoid';
+import { uid } from 'uid/secure';
 
 export const quiz = sqliteTable('quiz', {
-	id: text().primaryKey().$defaultFn(nanoid),
+	id: text().primaryKey().$defaultFn(uid),
 	title: text().notNull(),
 	authors: text({
 		mode: 'json',
@@ -20,7 +20,7 @@ export const quiz = sqliteTable('quiz', {
 });
 
 export const user = sqliteTable('user', {
-	id: text().primaryKey().$defaultFn(nanoid),
+	id: text().primaryKey().$defaultFn(uid),
 	name: text().notNull(),
 	email: text().notNull(),
 	emailVerified: integer({ mode: 'boolean' }).notNull(),
@@ -30,10 +30,10 @@ export const user = sqliteTable('user', {
 });
 
 export const session = sqliteTable('session', {
-	id: text().primaryKey().$defaultFn(nanoid),
+	id: text().primaryKey().$defaultFn(uid),
 	userId: text().references(() => user.id),
 	token: text().notNull(),
-	expiresAt: integer({ mode: 'boolean' }).notNull(),
+	expiresAt: integer({ mode: 'timestamp_ms' }).notNull(),
 	createdAt: integer({ mode: 'timestamp_ms' }).notNull(),
 	updatedAt: integer({ mode: 'timestamp_ms' }).notNull(),
 	ipAddress: text(),
@@ -41,27 +41,26 @@ export const session = sqliteTable('session', {
 });
 
 export const account = sqliteTable('account', {
-	id: text().primaryKey().$defaultFn(nanoid),
+	id: text().primaryKey().$defaultFn(uid),
 	userId: text().references(() => user.id),
 	accountId: text().notNull(),
 	providerId: text().notNull(),
 	accessToken: text(),
 	refreshToken: text(),
-	accessTokenExpiresAt: text(),
-	refreshTokenExpiresAt: text(),
+	accessTokenExpiresAt: integer({ mode: 'timestamp_ms' }),
+	refreshTokenExpiresAt: integer({ mode: 'timestamp_ms' }),
 	scope: text(),
 	idToken: text(),
 	password: text(),
-	expiresAt: integer({ mode: 'boolean' }).notNull(),
 	createdAt: integer({ mode: 'timestamp_ms' }).notNull(),
 	updatedAt: integer({ mode: 'timestamp_ms' }).notNull(),
 });
 
 export const verification = sqliteTable('verification', {
-	id: text().primaryKey().$defaultFn(nanoid),
-	identifer: text(),
+	id: text().primaryKey().$defaultFn(uid),
+	identifier: text().notNull(),
 	value: text().notNull(),
-	expiresAt: integer({ mode: 'boolean' }).notNull(),
+	expiresAt: integer({ mode: 'timestamp_ms' }).notNull(),
 	createdAt: integer({ mode: 'timestamp_ms' }).notNull(),
 	updatedAt: integer({ mode: 'timestamp_ms' }).notNull(),
 });

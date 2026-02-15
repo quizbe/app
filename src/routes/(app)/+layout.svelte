@@ -13,16 +13,14 @@
 
 	<span class="flex-1"></span>
 
-	{#if $session.data === null}
-		<a
-			href="/signin"
-			class="h-10 flex items-center gap-2 px-4 transition rounded-xl hover:(bg-zinc-100)"
-		>
-			<User />
+	<a
+		href={$session.data ? '/account' : '/signin'}
+		class="h-10 flex items-center gap-2 px-4 transition rounded-xl hover:(bg-zinc-100)"
+	>
+		<User />
 
-			Sign in
-		</a>
-	{/if}
+		{$session.data ? $session.data.user.name : 'Sign in'}
+	</a>
 </div>
 
 <slot />

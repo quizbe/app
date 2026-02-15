@@ -8,7 +8,7 @@ import { auth } from './auth-client';
 import { ofetch } from 'ofetch';
 import { goto } from '$app/navigation';
 import { resolve } from '$app/paths';
-import { nanoid } from 'nanoid';
+import { uid } from 'uid/secure';
 
 export const useQuizStorage = () =>
 	createStorage<Quiz>({
@@ -83,7 +83,7 @@ export async function createQuiz() {
 		const id = await ofetch<string>('/api/quizzes', { method: 'PUT' });
 	}
 
-	const id = nanoid();
+	const id = uid();
 	const storage = useQuizStorage();
 
 	if (await storage.has(id)) return createQuiz();

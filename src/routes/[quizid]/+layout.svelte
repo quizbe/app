@@ -21,7 +21,7 @@
 	import { type Question } from '$lib/types';
 	import Icon from '$lib/components/icon.svelte';
 	import Clock from '~icons/ph/clock';
-	import Sparkle from '~icons/ph/sparkle'; ,m   
+	import Sparkle from '~icons/ph/sparkle';
 
 	let settings = $state(false);
 	const quiz = $state<QuizContext>({ current: null, loading: true, editing: -1 });
