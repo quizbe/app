@@ -47,7 +47,7 @@ export async function loadQuizzes() {
 			created: quiz.created,
 			updated: quiz.updated,
 			questions: quiz.questions,
-			local: false,
+			storage: 'server',
 		});
 	}
 
@@ -70,8 +70,12 @@ export async function loadQuiz(id: string) {
 }
 
 export async function saveQuiz(quiz: Quiz) {
-	if (quiz.local && browser) {
+	if (['local', 'localfirst'].includes(quiz.storage) && browser) {
 		await useQuizStorage().set(quiz.id, quiz);
+	}
+
+	if (['server', 'serverfirst'].includes(quiz.storage) && browser) {
+		// TODO: IMPLEMENT SERVER SAVE
 	}
 }
 
@@ -80,10 +84,10 @@ export async function createQuiz() {
 
 	if (session.data) {
 		//
-		const id = await ofetch<string>('/api/quizzes', { method: 'PUT' });
+		// const id = await ofetch<string>('/api/quizzes', { method: 'PUT' });
 	}
 
-	const id = uid();
+	const id = uid(21);
 	const storage = useQuizStorage();
 
 	if (await storage.has(id)) return createQuiz();
@@ -95,7 +99,7 @@ export async function createQuiz() {
 		created: Date.now(),
 		updated: Date.now(),
 		questions: [],
-		local: true,
+		storage: 'local',
 	});
 
 	goto(resolve('/[quizid]/edit', { quizid: id }));

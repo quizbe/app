@@ -10,21 +10,27 @@
 		size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 		icon?: string | Snippet | Component;
 		label?: string;
+
 		ui?: {
 			base?: ClassNameValue;
 			icon?: ClassNameValue;
 		};
 	};
 
-	let { children, size = 'md', icon, ui = {}, label, ...rest }: Props = $props();
+	let { children, size = 'md', icon, ui = {}, label, disabled, ...rest }: Props = $props();
 
 	const classes = $derived(useButtonVariant({ size }));
 </script>
 
 <button
 	class={classes.base({
-		class: [ui.base, icon && !(children || label) ? 'px-0 aspect-square' : ''],
+		class: [
+			ui.base,
+			icon && !(children || label) ? 'px-0 aspect-square' : '',
+			disabled ? 'opacity-50 cursor-not-allowed' : '',
+		],
 	})}
+	{disabled}
 	{...rest}
 >
 	{#if isSnippet(icon)}

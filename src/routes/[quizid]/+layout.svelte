@@ -67,7 +67,11 @@
 		<Button icon={Gear} label="Settings" onclick={() => (settings = true)} />
 
 		<a href="/{page.params.quizid}" class="flex items-center h-full">
-			<Button icon={CaretLeft} label="Exit" ui={{ base: 'bg-red-50 border-red-200 text-red' }} />
+			<Button
+				icon={CaretLeft}
+				label="Exit"
+				ui={{ base: 'bg-red-50 border-red-200 text-red-500' }}
+			/>
 		</a>
 	{:else}
 		{@const question = quiz.current?.questions[quiz.editing]}
@@ -76,21 +80,24 @@
 			<Button icon={CaretLeft} onclick={() => (quiz.editing = -1)} />
 
 			<SelectSingle
-				bind:value={question.type}
+				bind:value={
+					() => question.type,
+					(v) => {
+						if (!quiz.current || question.type === v) return;
+
+						quiz.current.questions[quiz.editing] = {
+							...BLANK_QUESTIONS[v as Question['type']],
+							points: question.points,
+							time: question.time,
+						};
+					}
+				}
 				items={Object.keys(LABEL_OF_TYPES).map((v) => ({
 					label: LABEL_OF_TYPES[v as Question['type']],
 					icon: ICONS_OF_TYPES[v as Question['type']],
 					value: v,
 				}))}
 				icon={ICONS_OF_TYPES[question.type]}
-				onValueChange={(v) => {
-					if (!quiz.current || question.type === v) return;
-					quiz.current.questions[quiz.editing] = {
-						...BLANK_QUESTIONS[v as Question['type']],
-						points: question.points,
-						time: question.time,
-					};
-				}}
 			/>
 
 			<span class="flex-1"></span>

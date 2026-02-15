@@ -1,4 +1,4 @@
-import { union, intersect, object, string, number, array, boolean } from 'valibot';
+import { union, intersect, object, string, array, number, picklist } from 'valibot';
 import {
 	BASE,
 	MULTIPLE,
@@ -31,6 +31,7 @@ export const QUESTIONS = intersect([
 	BASE,
 	union([MULTIPLE, CATEGORIZE, DRAG, DROPDOWN, MATCH, PLOT, TYPE, VIDEO, MATH]),
 ]);
+
 export const QUIZ = object({
 	id: string(),
 	title: string(),
@@ -38,7 +39,7 @@ export const QUIZ = object({
 	created: number(),
 	updated: number(),
 	questions: array(QUESTIONS),
-	local: boolean(),
+	storage: picklist(['local', 'localfirst', 'server', 'serverfirst']),
 });
 
 export const TIMELIMIT_QUESTION: Record<number, string> = {

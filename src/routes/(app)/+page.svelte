@@ -165,7 +165,7 @@
 
 {#snippet header()}
 	<div class="flex mx-auto max-w-7xl gap-4 py-4 w-full">
-		<span class="text-3xl font-medium">Quizzes</span>
+		<span class="text-3xl font-medium">Resources</span>
 
 		<span class="flex-1"></span>
 
@@ -173,6 +173,7 @@
 			icon={FilePlus}
 			ui={{ base: 'bg-svelte-50 text-svelte border-svelte-100' }}
 			label="Create quiz"
+			onclick={createQuiz}
 		/>
 	</div>
 {/snippet}

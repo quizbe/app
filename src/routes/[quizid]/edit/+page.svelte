@@ -10,7 +10,9 @@
 </script>
 
 {#if quiz.current?.questions.length === 0}
-	<div class="h-[calc(100vh-var(--spacing)*18)] flex flex-col gap-4 items-center justify-center">
+	<div
+		class="h-[calc(100vh-var(--spacing)*18)] flex flex-col gap-4 items-center justify-center p-4"
+	>
 		<div class="relative flex items-center justify-center h-2px bg-zinc-100 w-full max-w-7xl mb-12">
 			<span class="absolute whitespace-nowrap bg-white px-4 font-medium">
 				Create your first question
@@ -20,7 +22,7 @@
 		{#each COLORS_OF_TYPES as color, idx (idx)}
 			<div class="w-full max-w-7xl mx-auto">
 				<h3 class="font-medium text-zinc-500 py-4">{color.label}</h3>
-				<div class="grid lg:grid-cols-5 gap-4">
+				<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
 					{#each color.types as type, tidx (tidx)}
 						{@const Icon = ICONS_OF_TYPES[type]}
 
