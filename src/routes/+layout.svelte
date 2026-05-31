@@ -7,13 +7,7 @@
 
 <svelte:head>
 	<link rel="icon" href={favicon} />
-	<title>Quizbe - Interactive learning all in one space</title>
+	<title>Quizbe - Interactive learning in one space</title>
 </svelte:head>
 
 {@render children()}
-
-<style>
-	/*:global(body) {
-		--at-apply: bg-zinc-50;
-	}*/
-</style>

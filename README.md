@@ -1,2 +1,3 @@
-# app
-Interactive learning all in one space
+# Quizbe
+
+Interactive learning in one space
