@@ -1,0 +1,1 @@
+<template>resource id</template>
