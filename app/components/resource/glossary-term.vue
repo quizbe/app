@@ -2,8 +2,8 @@
 import { useTextareaAutosize } from '@vueuse/core'
 import type { Glossary } from '~/composables/schemas'
 
-const term = defineModel<Glossary['terms'][0]>({ required: true })
-const definition_textarea = useTemplateRef('text_textarea')
+const term = defineModel<Glossary['terms'][0]>('term', { required: true })
+const definition_textarea = useTemplateRef('definition_textarea')
 const text_textarea = useTemplateRef('text_textarea')
 
 useTextareaAutosize({
@@ -22,12 +22,12 @@ useTextareaAutosize({ element: text_textarea, input: term.value.text })
           v-model="term.text"
           placeholder="Enter term"
           :class="[
-            'w-full outline-none h-16 bg-surface-muted rounded p-4 resize-none',
+            'w-full outline-none h-16 bg-muted rounded p-4 resize-none',
             term.media ? '' : ''
           ]"
         ></textarea>
 
-        <Modal></Modal>
+        <UModal></UModal>
       </div>
     </td>
 
@@ -36,10 +36,10 @@ useTextareaAutosize({ element: text_textarea, input: term.value.text })
         ref="definition_textarea"
         v-model="term.definition.text"
         placeholder="Enter definition"
-        class="w-full outline-none h-16 bg-surface-muted rounded p-4 resize-none"
+        class="w-full outline-none h-16 bg-muted rounded p-4 resize-none"
       />
     </td>
   </tr>
 
-  <MediaSelector :open="true" />
+  <!-- <MediaSelector :open="true" /> -->
 </template>

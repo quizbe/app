@@ -7,11 +7,6 @@ export default defineNuxtConfig({
   },
 
   css: ['~/assets/css/main.css'],
-
-  routeRules: {
-    '/': { prerender: true }
-  },
-
   compatibilityDate: '2026-06-30',
 
   eslint: {
@@ -20,6 +15,12 @@ export default defineNuxtConfig({
         commaDangle: 'never',
         braceStyle: '1tbs'
       }
+    }
+  },
+
+  vite: {
+    optimizeDeps: {
+      include: ['dayjs', 'dayjs/plugin/relativeTime', 'uid/secure']
     }
   }
 })

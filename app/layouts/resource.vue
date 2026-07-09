@@ -13,7 +13,7 @@ const route = useRoute()
 const router = useRouter()
 const resource = useResourceState()
 const loading = useLoadingState()
-const editing = useEditingState()
+// const editing = useEditingState()
 
 onMounted(async () => {
   if (resource.value !== null) return (loading.value = false)
@@ -24,9 +24,10 @@ onMounted(async () => {
   loading.value = false
 })
 
-watch([resource, loading], ([res, loadin]) => {
-  if (!res || loadin) return
-  useResourceStorage().set(res.id, res)
+watch([resource, loading], () => {
+  if (!resource.value || loading.value) return
+  console.log(resource.value)
+  useResourceStorage().set(resource.value.id, resource.value)
 })
 </script>
 
@@ -36,7 +37,7 @@ watch([resource, loading], ([res, loadin]) => {
   </Head>
 
   <nav
-    class="sticky w-full top-0 flex gap-4 p-4 z-10 bg-surface-base/75 backdrop-blur border-b border-surface-accented"
+    class="sticky w-full top-0 flex gap-4 p-4 z-10 bg-base/75 backdrop-blur border-b border-accented"
   >
     <UButton
       variant="subtle"
@@ -48,18 +49,21 @@ watch([resource, loading], ([res, loadin]) => {
 
     <span class="flex-1"></span>
 
-    <UModal
-      trigger="{ variant: 'outline', color: 'surface', icon: 'i-ph:gear', label: 'Settings' }"
-      title="Settings"
-    >
-      {#if resource.current}
-      <USelect
-        v-if="resource"
-        v-model="resource.storage"
-        :items="Object.keys(STORAGE_OPTION)"
-        :ui="{ content: 'z-9999' }"
+    <UModal title="Settings">
+      <UButton
+        label="Settings"
+        variant="outline"
+        color="neutral"
+        icon="i-ph:gear"
       />
-      {/if}
+
+      <template #body>
+        <USelect
+          v-if="resource"
+          v-model="resource.storage"
+          :items="Object.keys(STORAGE_OPTION)"
+        />
+      </template>
     </UModal>
   </nav>
 

@@ -11,7 +11,8 @@ export default withNuxt([
       'vue/singleline-html-element-content-newline': 'off',
       '@stylistic/arrow-parens': 'off',
       'vue/max-attributes-per-line': 'off',
-      'vue/block-tag-newline': 'off'
+      'vue/block-tag-newline': 'off',
+      'nuxt/nuxt-config-keys-order': 'off'
     }
   }
 ])

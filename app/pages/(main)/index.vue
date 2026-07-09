@@ -72,8 +72,8 @@ onMounted(async () => {
         <header class="flex gap-4 justify-between">
           <h1 class="text-2xl font-semibold">Resources</h1>
 
-          <UModal trigger="{ label: 'Create', icon: 'i-ph:plus' }">
-            <Button></Button>
+          <UModal :close="false">
+            <UButton label="Create" icon="i-ph:plus" />
 
             <template #body> Hello </template>
           </UModal>
@@ -107,6 +107,7 @@ onMounted(async () => {
                 color="neutral"
                 variant="outline"
                 label="Edit"
+                :href="`/${resource.id}/edit`"
                 @click="
                   (e) => {
                     e.preventDefault()

@@ -1,8 +1,10 @@
 <script setup lang="ts">
-import type { Glossary } from '~/composables/schemas'
-
 const resource = useResourceState()
 const loading = useLoadingState()
+
+definePageMeta({
+  layout: 'resource'
+})
 </script>
 
 <template>
@@ -19,12 +21,10 @@ const loading = useLoadingState()
     </template>
 
     <template v-else-if="resource">
-      <div class="container grow-w-full flex flex-col gap-4">
-        <GlossaryEditor
-          v-if="resource.kind === 'glossary'"
-          :glossary="resource"
-          @update:glossary="(v: Glossary) => (resource = v)"
-        />
+      <div class="container grow w-full flex flex-col gap-4">
+        <template v-if="resource.kind === 'glossary'">
+          <ResourceGlossaryEditor v-model="resource" />
+        </template>
       </div>
     </template>
   </div>
