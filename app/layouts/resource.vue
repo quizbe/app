@@ -1,6 +1,9 @@
 <script setup lang="ts">
+import { watchDebounced } from '@vueuse/core'
 import { safeParse } from 'valibot'
 import { RESOURCE } from '~/composables/schemas'
+import { cloneDeep, flattenObject, isEqual } from 'es-toolkit'
+import { diffChars } from 'diff'
 
 const STORAGE_OPTION = {
   localfirst: 'Local First',
@@ -14,6 +17,7 @@ const router = useRouter()
 const resource = useResourceState()
 const loading = useLoadingState()
 // const editing = useEditingState()
+const changes = ref<'unchange' | 'unsaved' | 'saved'>('unchange')
 
 onMounted(async () => {
   if (resource.value !== null) return (loading.value = false)
@@ -24,11 +28,44 @@ onMounted(async () => {
   loading.value = false
 })
 
-watch([resource, loading], () => {
-  if (!resource.value || loading.value) return
-  console.log(resource.value)
-  useResourceStorage().set(resource.value.id, resource.value)
+watchDebounced(
+  resource,
+  async (newval, oldval) => {
+    if (
+      !newval ||
+      !oldval ||
+      loading.value ||
+      JSON.stringify(newval) === JSON.stringify(oldval)
+    ) {
+      return
+    }
+    newval.updated = Date.now()
+    await useResourceStorage().set(newval.id, newval)
+    changes.value = 'saved'
+  },
+  {
+    deep: true,
+    debounce: 2500
+  }
+)
+
+watchDebounced(resource, () => (changes.value = 'unchange'), {
+  deep: true,
+  debounce: 3636
 })
+watch(
+  resource,
+  (newval, oldval) => {
+    const newv = flattenObject(cloneDeep({ ...newval }))
+    const oldv = flattenObject(cloneDeep({ ...oldval }))
+
+    console.log(newv, oldv)
+    if (!oldval || loading.value || isEqual(newval, oldval)) return
+    console.log('Unsaved')
+    changes.value = 'unsaved'
+  },
+  { deep: true }
+)
 </script>
 
 <template>
@@ -37,22 +74,33 @@ watch([resource, loading], () => {
   </Head>
 
   <nav
-    class="sticky w-full top-0 flex gap-4 p-4 z-10 bg-base/75 backdrop-blur border-b border-accented"
+    class="sticky w-full top-0 flex items-center gap-4 p-4 z-10 bg-base/75 backdrop-blur border-b border-accented"
   >
     <UButton
+      v-if="resource"
       variant="subtle"
       color="error"
       icon="i-ph:caret-left"
       label="Exit"
-      href="/{resource.current?.id}"
+      :href="`/${resource.id}`"
     />
+
+    <span
+      v-if="changes !== 'unchange'"
+      :class="[
+        'text-sm',
+        changes === 'saved' ? 'text-primary' : 'text-neutral/25'
+      ]"
+    >
+      {{ changes === 'unsaved' ? 'Unsaved changes' : 'Saved' }}
+    </span>
 
     <span class="flex-1"></span>
 
     <UModal title="Settings">
       <UButton
         label="Settings"
-        variant="outline"
+        variant="soft"
         color="neutral"
         icon="i-ph:gear"
       />

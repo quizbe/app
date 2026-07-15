@@ -6,20 +6,21 @@
   </Head>
 
   <nav class="sticky flex items-center w-full p-4 gap-2">
-    <NuxtLink to="/" class="h-fit font-black text-2xl text-primary-500">
+    <NuxtLink
+      to="/"
+      class="h-fit text-2xl text-primary-500 font-caveat font-semibold"
+    >
       Quizbe
     </NuxtLink>
 
     <span class="grow"></span>
-
-    <UColorModeButton />
 
     <UButton
       href="/account"
       label="Account"
       variant="soft"
       color="neutral"
-      icon="i-lucide:user"
+      icon="i-ph:user"
     />
   </nav>
 

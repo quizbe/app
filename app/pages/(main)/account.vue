@@ -2,16 +2,17 @@
 
 <template>
   <div class="container mx-auto space-y-4">
-    <H2>Settings</H2>
+    <ProseH2 class="prose">Settings</ProseH2>
 
     <UCard variant="outline">
       <template #header>
-        <h3 class="font-semibold mb-4 flex items-center gap-2">
+        <h3 class="font-semibold mb-2 flex items-center gap-2">
           <Icon name="i-ph:user-fill" />
+
           You
         </h3>
 
-        <p class="text-label-muted">
+        <p class="text-muted">
           All things and everything about you, including your profile.
         </p>
       </template>
@@ -21,6 +22,22 @@
 
         Not signed in
       </div>
+    </UCard>
+
+    <UCard variant="outline">
+      <template #header>
+        <h3 class="font-semibold mb-2 flex items-center gap-2">
+          <Icon name="i-ph:swatches-fill" />
+
+          Appearance
+        </h3>
+
+        <p class="text-muted">Customize how Quizbe looks and feel.</p>
+      </template>
+
+      <UFormField label="Color Mode:" orientation="horizontal">
+        <UColorModeSelect />
+      </UFormField>
     </UCard>
 
     <!-- <Card variant="outline" ui="{ header: 'space-y-4' }">

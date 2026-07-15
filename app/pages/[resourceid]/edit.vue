@@ -22,9 +22,10 @@ definePageMeta({
 
     <template v-else-if="resource">
       <div class="container grow w-full flex flex-col gap-4">
-        <template v-if="resource.kind === 'glossary'">
-          <ResourceGlossaryEditor v-model="resource" />
-        </template>
+        <ResourceGlossaryEditor
+          v-if="resource.kind === 'glossary'"
+          v-model="resource"
+        />
       </div>
     </template>
   </div>

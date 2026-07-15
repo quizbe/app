@@ -12,14 +12,19 @@
   },
   "dependencies": {
     "@iconify-json/ph": "^1.2.2",
-    "@iconify-json/simple-icons": "^1.2.87",
+    "@iconify-json/simple-icons": "^1.2.89",
+    "@nuxt/content": "^3.15.0",
     "@nuxt/ui": "^4.9.0",
     "@vueuse/core": "^14.3.0",
+    "better-sqlite3": "^12.11.1",
     "dayjs": "^1.11.21",
     "defu": "^6.1.7",
-    "idb-keyval": "^6.2.6",
+    "diff": "^9.0.0",
+    "es-toolkit": "^1.49.0",
+    "idb-keyval": "^6.3.0",
+    "js-base64": "^3.8.1",
     "nuxt": "^4.4.8",
-    "tailwindcss": "^4.3.1",
+    "tailwindcss": "^4.3.2",
     "uid": "^2.0.2",
     "unstorage": "^1.17.5",
     "valibot": "^1.4.2"
@@ -28,7 +33,7 @@
     "@nuxt/eslint": "^1.16.0",
     "eslint": "^10.6.0",
     "typescript": "^6.0.3",
-    "vue-tsc": "^3.3.5"
+    "vue-tsc": "^3.3.7"
   },
   "packageManager": "pnpm@11.9.0"
 }
