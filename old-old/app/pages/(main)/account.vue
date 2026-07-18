@@ -2,7 +2,7 @@
 
 <template>
   <div class="container mx-auto space-y-4">
-    <ProseH2 class="prose">Settings</ProseH2>
+    <ProseH2>Account</ProseH2>
 
     <UCard variant="outline">
       <template #header>
@@ -26,18 +26,16 @@
 
     <UCard variant="outline">
       <template #header>
-        <h3 class="font-semibold mb-2 flex items-center gap-2">
-          <Icon name="i-ph:swatches-fill" />
+        <h3 class="font-semibold mb-4 flex items-center gap-2">
+          <Icon name="i-ph:user-fill" />
 
           Appearance
         </h3>
 
-        <p class="text-muted">Customize how Quizbe looks and feel.</p>
+        <p class="text-label-muted">Customize how quizbe look and feel</p>
       </template>
 
-      <UFormField label="Color Mode:" orientation="horizontal">
-        <UColorModeSelect />
-      </UFormField>
+      <UColorModeSelect />
     </UCard>
 
     <!-- <Card variant="outline" ui="{ header: 'space-y-4' }">

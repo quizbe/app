@@ -8,9 +8,9 @@
   <nav class="sticky flex items-center w-full p-4 gap-2">
     <NuxtLink
       to="/"
-      class="h-fit text-2xl text-primary-500 font-caveat font-semibold"
+      class="h-8 font-bold text-2xl text-primary-500 font-comfortaa"
     >
-      Quizbe
+      quizbe
     </NuxtLink>
 
     <span class="grow"></span>
