@@ -2,7 +2,7 @@
 
 <template>
   <div class="container mx-auto space-y-4">
-    <H2>Settings</H2>
+    <ProseH2>Account</ProseH2>
 
     <UCard variant="outline">
       <template #header>
@@ -21,6 +21,20 @@
 
         Not signed in
       </div>
+    </UCard>
+
+    <UCard variant="outline">
+      <template #header>
+        <h3 class="font-semibold mb-4 flex items-center gap-2">
+          <Icon name="i-ph:user-fill" />
+
+          Appearance
+        </h3>
+
+        <p class="text-label-muted">Customize how quizbe look and feel</p>
+      </template>
+
+      <UColorModeSelect />
     </UCard>
 
     <!-- <Card variant="outline" ui="{ header: 'space-y-4' }">
