@@ -16,6 +16,7 @@ type LazyComponent<T> = DefineComponent<HydrationStrategies, {}, {}, {}, {}, {},
 interface _GlobalComponents {
   ResourceGlossaryEditor: typeof import("../../app/components/resource/glossary-editor.vue")['default']
   ResourceGlossaryTerm: typeof import("../../app/components/resource/glossary-term.vue")['default']
+  UndrawNoData: typeof import("../../app/components/undraw-no-data.vue")['default']
   ProseA: typeof import("../../node_modules/.pnpm/@nuxt+ui@4.9.0_44e6ca8978275940d5af8c3c45526687/node_modules/@nuxt/ui/dist/runtime/components/prose/A.vue")['default']
   ProseAccordion: typeof import("../../node_modules/.pnpm/@nuxt+ui@4.9.0_44e6ca8978275940d5af8c3c45526687/node_modules/@nuxt/ui/dist/runtime/components/prose/Accordion.vue")['default']
   ProseAccordionItem: typeof import("../../node_modules/.pnpm/@nuxt+ui@4.9.0_44e6ca8978275940d5af8c3c45526687/node_modules/@nuxt/ui/dist/runtime/components/prose/AccordionItem.vue")['default']
@@ -203,7 +204,7 @@ interface _GlobalComponents {
   NuxtAnnouncer: typeof import("../../node_modules/.pnpm/nuxt@4.4.8_@babel+plugin-syntax-jsx@7.28.6_@babel+core@7.29.0__@babel+plugin-syntax-typ_0299952b5bb3a6a50ea297490c857f59/node_modules/nuxt/dist/app/components/nuxt-announcer")['default']
   NuxtImg: typeof import("../../node_modules/.pnpm/nuxt@4.4.8_@babel+plugin-syntax-jsx@7.28.6_@babel+core@7.29.0__@babel+plugin-syntax-typ_0299952b5bb3a6a50ea297490c857f59/node_modules/nuxt/dist/app/components/nuxt-stubs")['NuxtImg']
   NuxtPicture: typeof import("../../node_modules/.pnpm/nuxt@4.4.8_@babel+plugin-syntax-jsx@7.28.6_@babel+core@7.29.0__@babel+plugin-syntax-typ_0299952b5bb3a6a50ea297490c857f59/node_modules/nuxt/dist/app/components/nuxt-stubs")['NuxtPicture']
-  NuxtPage: typeof import("../../node_modules/.pnpm/nuxt@4.4.8_@babel+plugin-syntax-jsx@7.28.6_@babel+core@7.29.0__@babel+plugin-syntax-typ_0299952b5bb3a6a50ea297490c857f59/node_modules/nuxt/dist/pages/runtime/page-placeholder")['default']
+  NuxtPage: typeof import("../../node_modules/.pnpm/nuxt@4.4.8_@babel+plugin-syntax-jsx@7.28.6_@babel+core@7.29.0__@babel+plugin-syntax-typ_0299952b5bb3a6a50ea297490c857f59/node_modules/nuxt/dist/pages/runtime/page")['default']
   NoScript: typeof import("../../node_modules/.pnpm/nuxt@4.4.8_@babel+plugin-syntax-jsx@7.28.6_@babel+core@7.29.0__@babel+plugin-syntax-typ_0299952b5bb3a6a50ea297490c857f59/node_modules/nuxt/dist/head/runtime/components")['NoScript']
   Link: typeof import("../../node_modules/.pnpm/nuxt@4.4.8_@babel+plugin-syntax-jsx@7.28.6_@babel+core@7.29.0__@babel+plugin-syntax-typ_0299952b5bb3a6a50ea297490c857f59/node_modules/nuxt/dist/head/runtime/components")['Link']
   Base: typeof import("../../node_modules/.pnpm/nuxt@4.4.8_@babel+plugin-syntax-jsx@7.28.6_@babel+core@7.29.0__@babel+plugin-syntax-typ_0299952b5bb3a6a50ea297490c857f59/node_modules/nuxt/dist/head/runtime/components")['Base']
@@ -218,6 +219,7 @@ interface _GlobalComponents {
   NuxtIsland: typeof import("../../node_modules/.pnpm/nuxt@4.4.8_@babel+plugin-syntax-jsx@7.28.6_@babel+core@7.29.0__@babel+plugin-syntax-typ_0299952b5bb3a6a50ea297490c857f59/node_modules/nuxt/dist/app/components/nuxt-island")['default']
   LazyResourceGlossaryEditor: LazyComponent<typeof import("../../app/components/resource/glossary-editor.vue")['default']>
   LazyResourceGlossaryTerm: LazyComponent<typeof import("../../app/components/resource/glossary-term.vue")['default']>
+  LazyUndrawNoData: LazyComponent<typeof import("../../app/components/undraw-no-data.vue")['default']>
   LazyProseA: LazyComponent<typeof import("../../node_modules/.pnpm/@nuxt+ui@4.9.0_44e6ca8978275940d5af8c3c45526687/node_modules/@nuxt/ui/dist/runtime/components/prose/A.vue")['default']>
   LazyProseAccordion: LazyComponent<typeof import("../../node_modules/.pnpm/@nuxt+ui@4.9.0_44e6ca8978275940d5af8c3c45526687/node_modules/@nuxt/ui/dist/runtime/components/prose/Accordion.vue")['default']>
   LazyProseAccordionItem: LazyComponent<typeof import("../../node_modules/.pnpm/@nuxt+ui@4.9.0_44e6ca8978275940d5af8c3c45526687/node_modules/@nuxt/ui/dist/runtime/components/prose/AccordionItem.vue")['default']>
@@ -405,7 +407,7 @@ interface _GlobalComponents {
   LazyNuxtAnnouncer: LazyComponent<typeof import("../../node_modules/.pnpm/nuxt@4.4.8_@babel+plugin-syntax-jsx@7.28.6_@babel+core@7.29.0__@babel+plugin-syntax-typ_0299952b5bb3a6a50ea297490c857f59/node_modules/nuxt/dist/app/components/nuxt-announcer")['default']>
   LazyNuxtImg: LazyComponent<typeof import("../../node_modules/.pnpm/nuxt@4.4.8_@babel+plugin-syntax-jsx@7.28.6_@babel+core@7.29.0__@babel+plugin-syntax-typ_0299952b5bb3a6a50ea297490c857f59/node_modules/nuxt/dist/app/components/nuxt-stubs")['NuxtImg']>
   LazyNuxtPicture: LazyComponent<typeof import("../../node_modules/.pnpm/nuxt@4.4.8_@babel+plugin-syntax-jsx@7.28.6_@babel+core@7.29.0__@babel+plugin-syntax-typ_0299952b5bb3a6a50ea297490c857f59/node_modules/nuxt/dist/app/components/nuxt-stubs")['NuxtPicture']>
-  LazyNuxtPage: LazyComponent<typeof import("../../node_modules/.pnpm/nuxt@4.4.8_@babel+plugin-syntax-jsx@7.28.6_@babel+core@7.29.0__@babel+plugin-syntax-typ_0299952b5bb3a6a50ea297490c857f59/node_modules/nuxt/dist/pages/runtime/page-placeholder")['default']>
+  LazyNuxtPage: LazyComponent<typeof import("../../node_modules/.pnpm/nuxt@4.4.8_@babel+plugin-syntax-jsx@7.28.6_@babel+core@7.29.0__@babel+plugin-syntax-typ_0299952b5bb3a6a50ea297490c857f59/node_modules/nuxt/dist/pages/runtime/page")['default']>
   LazyNoScript: LazyComponent<typeof import("../../node_modules/.pnpm/nuxt@4.4.8_@babel+plugin-syntax-jsx@7.28.6_@babel+core@7.29.0__@babel+plugin-syntax-typ_0299952b5bb3a6a50ea297490c857f59/node_modules/nuxt/dist/head/runtime/components")['NoScript']>
   LazyLink: LazyComponent<typeof import("../../node_modules/.pnpm/nuxt@4.4.8_@babel+plugin-syntax-jsx@7.28.6_@babel+core@7.29.0__@babel+plugin-syntax-typ_0299952b5bb3a6a50ea297490c857f59/node_modules/nuxt/dist/head/runtime/components")['Link']>
   LazyBase: LazyComponent<typeof import("../../node_modules/.pnpm/nuxt@4.4.8_@babel+plugin-syntax-jsx@7.28.6_@babel+core@7.29.0__@babel+plugin-syntax-typ_0299952b5bb3a6a50ea297490c857f59/node_modules/nuxt/dist/head/runtime/components")['Base']>

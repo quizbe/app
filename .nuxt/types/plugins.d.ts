@@ -8,7 +8,7 @@ type InjectionType<A extends Plugin> = A extends {default: Plugin<infer T>} ? De
 type NuxtAppInjections = 
   InjectionType<typeof import("../../node_modules/.pnpm/nuxt@4.4.8_@babel+plugin-syntax-jsx@7.28.6_@babel+core@7.29.0__@babel+plugin-syntax-typ_0299952b5bb3a6a50ea297490c857f59/node_modules/nuxt/dist/app/plugins/revive-payload.client.js")> &
   InjectionType<typeof import("../../node_modules/.pnpm/nuxt@4.4.8_@babel+plugin-syntax-jsx@7.28.6_@babel+core@7.29.0__@babel+plugin-syntax-typ_0299952b5bb3a6a50ea297490c857f59/node_modules/nuxt/dist/head/runtime/plugins/unhead.js")> &
-  InjectionType<typeof import("../../node_modules/.pnpm/nuxt@4.4.8_@babel+plugin-syntax-jsx@7.28.6_@babel+core@7.29.0__@babel+plugin-syntax-typ_0299952b5bb3a6a50ea297490c857f59/node_modules/nuxt/dist/app/plugins/router.js")> &
+  InjectionType<typeof import("../../node_modules/.pnpm/nuxt@4.4.8_@babel+plugin-syntax-jsx@7.28.6_@babel+core@7.29.0__@babel+plugin-syntax-typ_0299952b5bb3a6a50ea297490c857f59/node_modules/nuxt/dist/pages/runtime/plugins/router.js")> &
   InjectionType<typeof import("../../node_modules/.pnpm/nuxt@4.4.8_@babel+plugin-syntax-jsx@7.28.6_@babel+core@7.29.0__@babel+plugin-syntax-typ_0299952b5bb3a6a50ea297490c857f59/node_modules/nuxt/dist/app/plugins/browser-devtools-timing.client.js")> &
   InjectionType<typeof import("../../node_modules/.pnpm/nuxt@4.4.8_@babel+plugin-syntax-jsx@7.28.6_@babel+core@7.29.0__@babel+plugin-syntax-typ_0299952b5bb3a6a50ea297490c857f59/node_modules/nuxt/dist/app/plugins/payload.client.js")> &
   InjectionType<typeof import("../../node_modules/.pnpm/nuxt@4.4.8_@babel+plugin-syntax-jsx@7.28.6_@babel+core@7.29.0__@babel+plugin-syntax-typ_0299952b5bb3a6a50ea297490c857f59/node_modules/nuxt/dist/app/plugins/dev-server-logs.js")> &
@@ -19,6 +19,8 @@ type NuxtAppInjections =
   InjectionType<typeof import("../../node_modules/.pnpm/@nuxtjs+color-mode@4.0.1_magicast@0.5.3/node_modules/@nuxtjs/color-mode/dist/runtime/plugin.server.js")> &
   InjectionType<typeof import("../../node_modules/.pnpm/@nuxtjs+color-mode@4.0.1_magicast@0.5.3/node_modules/@nuxtjs/color-mode/dist/runtime/plugin.client.js")> &
   InjectionType<typeof import("../../node_modules/.pnpm/@nuxt+icon@2.2.3_magicast@0.5.3_vite@7.3.3_jiti@2.7.0_lightningcss@1.32.0_terser@5.47.1_e9f9b4e19b77fadb3f9224e19fd36442/node_modules/@nuxt/icon/dist/runtime/plugin.js")> &
+  InjectionType<typeof import("../../node_modules/.pnpm/nuxt@4.4.8_@babel+plugin-syntax-jsx@7.28.6_@babel+core@7.29.0__@babel+plugin-syntax-typ_0299952b5bb3a6a50ea297490c857f59/node_modules/nuxt/dist/pages/runtime/plugins/prefetch.client.js")> &
+  InjectionType<typeof import("../../node_modules/.pnpm/nuxt@4.4.8_@babel+plugin-syntax-jsx@7.28.6_@babel+core@7.29.0__@babel+plugin-syntax-typ_0299952b5bb3a6a50ea297490c857f59/node_modules/nuxt/dist/pages/runtime/plugins/check-if-page-unused.js")> &
   InjectionType<typeof import("../../node_modules/.pnpm/@nuxt+devtools@3.2.4_vite@7.3.3_jiti@2.7.0_lightningcss@1.32.0_terser@5.47.1_yaml@2.9.0__vue@3.5.35_typescript@6.0.3_/node_modules/@nuxt/devtools/dist/runtime/plugins/devtools.server.js")> &
   InjectionType<typeof import("../../node_modules/.pnpm/@nuxt+devtools@3.2.4_vite@7.3.3_jiti@2.7.0_lightningcss@1.32.0_terser@5.47.1_yaml@2.9.0__vue@3.5.35_typescript@6.0.3_/node_modules/@nuxt/devtools/dist/runtime/plugins/devtools.client.js")> &
   InjectionType<typeof import("../../node_modules/.pnpm/@nuxt+ui@4.9.0_44e6ca8978275940d5af8c3c45526687/node_modules/@nuxt/ui/dist/runtime/plugins/colors.js")> &
@@ -29,7 +31,7 @@ declare module '#app' {
   interface NuxtApp extends NuxtAppInjections { }
 
   interface NuxtAppLiterals {
-    pluginName: 'vue-devtools-client' | 'nuxt:revive-payload:client' | 'nuxt:head' | 'nuxt:router' | 'nuxt:browser-devtools-timing' | 'nuxt:payload' | 'nuxt:revive-payload:server' | 'nuxt:chunk-reload' | '@nuxt/icon' | 'nuxt:global-components' | 'nuxt:checkIfLayoutUsed'
+    pluginName: 'vue-devtools-client' | 'nuxt:revive-payload:client' | 'nuxt:head' | 'nuxt:router' | 'nuxt:browser-devtools-timing' | 'nuxt:payload' | 'nuxt:revive-payload:server' | 'nuxt:chunk-reload' | '@nuxt/icon' | 'nuxt:global-components' | 'nuxt:prefetch' | 'nuxt:checkIfPageUnused' | 'nuxt:checkIfLayoutUsed'
   }
 }
 

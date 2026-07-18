@@ -29,6 +29,12 @@
       "@@/*": [
         "../*"
       ],
+      "vue-router": [
+        "../node_modules/.pnpm/vue-router@5.1.0_@vue+compiler-sfc@3.5.35_vite@7.3.3_jiti@2.7.0_lightningcss@1.32.0_ter_c3994cfb4fdae1db4462ea51a6af5ada/node_modules/vue-router"
+      ],
+      "nuxt": [
+        "../node_modules/.pnpm/nuxt@4.4.8_@babel+plugin-syntax-jsx@7.28.6_@babel+core@7.29.0__@babel+plugin-syntax-typ_0299952b5bb3a6a50ea297490c857f59/node_modules/nuxt"
+      ],
       "@unhead/vue": [
         "../node_modules/.pnpm/@unhead+vue@2.1.15_vue@3.5.35_typescript@6.0.3_/node_modules/@unhead/vue"
       ],
@@ -44,14 +50,8 @@
       "@vue/compiler-sfc": [
         "../node_modules/.pnpm/@vue+compiler-sfc@3.5.35/node_modules/@vue/compiler-sfc"
       ],
-      "vue-router": [
-        "../node_modules/.pnpm/vue-router@5.1.0_@vue+compiler-sfc@3.5.35_vite@7.3.3_jiti@2.7.0_lightningcss@1.32.0_ter_c3994cfb4fdae1db4462ea51a6af5ada/node_modules/vue-router"
-      ],
       "@nuxt/schema": [
         "../node_modules/.pnpm/@nuxt+schema@4.4.8/node_modules/@nuxt/schema"
-      ],
-      "nuxt": [
-        "../node_modules/.pnpm/nuxt@4.4.8_@babel+plugin-syntax-jsx@7.28.6_@babel+core@7.29.0__@babel+plugin-syntax-typ_0299952b5bb3a6a50ea297490c857f59/node_modules/nuxt"
       ],
       "@nuxt/icon": [
         "../node_modules/.pnpm/@nuxt+icon@2.2.3_magicast@0.5.3_vite@7.3.3_jiti@2.7.0_lightningcss@1.32.0_terser@5.47.1_e9f9b4e19b77fadb3f9224e19fd36442/node_modules/@nuxt/icon"
@@ -62,20 +62,23 @@
       "@nuxtjs/color-mode": [
         "../node_modules/.pnpm/@nuxtjs+color-mode@4.0.1_magicast@0.5.3/node_modules/@nuxtjs/color-mode"
       ],
-      "nitropack": [
-        "../node_modules/.pnpm/nitropack@2.13.4_idb-keyval@6.2.6_oxc-parser@0.133.0_srvx@0.11.15/node_modules/nitropack"
-      ],
       "h3": [
-        "../node_modules/h3"
+        "../node_modules/.pnpm/h3@1.15.11/node_modules/h3"
       ],
       "consola": [
         "../node_modules/.pnpm/consola@3.4.2/node_modules/consola"
       ],
       "ofetch": [
-        "../node_modules/ofetch"
+        "../node_modules/.pnpm/ofetch@1.5.1/node_modules/ofetch"
       ],
       "crossws": [
-        "../node_modules/crossws"
+        "../node_modules/.pnpm/crossws@0.3.5/node_modules/crossws"
+      ],
+      "nitropack": [
+        "../node_modules/.pnpm/nitropack@2.13.4_idb-keyval@6.2.6_oxc-parser@0.133.0_srvx@0.11.15/node_modules/nitropack"
+      ],
+      "vite/client": [
+        "../node_modules/.pnpm/vite@7.3.3_jiti@2.7.0_lightningcss@1.32.0_terser@5.47.1_yaml@2.9.0/node_modules/vite/client"
       ],
       "nitropack/types": [
         "../node_modules/.pnpm/nitropack@2.13.4_idb-keyval@6.2.6_oxc-parser@0.133.0_srvx@0.11.15/node_modules/nitropack/types"

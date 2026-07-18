@@ -16,6 +16,7 @@ type LazyComponent<T> = DefineComponent<HydrationStrategies, {}, {}, {}, {}, {},
 
 export const ResourceGlossaryEditor: typeof import("../app/components/resource/glossary-editor.vue")['default']
 export const ResourceGlossaryTerm: typeof import("../app/components/resource/glossary-term.vue")['default']
+export const UndrawNoData: typeof import("../app/components/undraw-no-data.vue")['default']
 export const ProseA: typeof import("../node_modules/.pnpm/@nuxt+ui@4.9.0_44e6ca8978275940d5af8c3c45526687/node_modules/@nuxt/ui/dist/runtime/components/prose/A.vue")['default']
 export const ProseAccordion: typeof import("../node_modules/.pnpm/@nuxt+ui@4.9.0_44e6ca8978275940d5af8c3c45526687/node_modules/@nuxt/ui/dist/runtime/components/prose/Accordion.vue")['default']
 export const ProseAccordionItem: typeof import("../node_modules/.pnpm/@nuxt+ui@4.9.0_44e6ca8978275940d5af8c3c45526687/node_modules/@nuxt/ui/dist/runtime/components/prose/AccordionItem.vue")['default']
@@ -203,7 +204,7 @@ export const NuxtRouteAnnouncer: typeof import("../node_modules/.pnpm/nuxt@4.4.8
 export const NuxtAnnouncer: typeof import("../node_modules/.pnpm/nuxt@4.4.8_@babel+plugin-syntax-jsx@7.28.6_@babel+core@7.29.0__@babel+plugin-syntax-typ_0299952b5bb3a6a50ea297490c857f59/node_modules/nuxt/dist/app/components/nuxt-announcer")['default']
 export const NuxtImg: typeof import("../node_modules/.pnpm/nuxt@4.4.8_@babel+plugin-syntax-jsx@7.28.6_@babel+core@7.29.0__@babel+plugin-syntax-typ_0299952b5bb3a6a50ea297490c857f59/node_modules/nuxt/dist/app/components/nuxt-stubs")['NuxtImg']
 export const NuxtPicture: typeof import("../node_modules/.pnpm/nuxt@4.4.8_@babel+plugin-syntax-jsx@7.28.6_@babel+core@7.29.0__@babel+plugin-syntax-typ_0299952b5bb3a6a50ea297490c857f59/node_modules/nuxt/dist/app/components/nuxt-stubs")['NuxtPicture']
-export const NuxtPage: typeof import("../node_modules/.pnpm/nuxt@4.4.8_@babel+plugin-syntax-jsx@7.28.6_@babel+core@7.29.0__@babel+plugin-syntax-typ_0299952b5bb3a6a50ea297490c857f59/node_modules/nuxt/dist/pages/runtime/page-placeholder")['default']
+export const NuxtPage: typeof import("../node_modules/.pnpm/nuxt@4.4.8_@babel+plugin-syntax-jsx@7.28.6_@babel+core@7.29.0__@babel+plugin-syntax-typ_0299952b5bb3a6a50ea297490c857f59/node_modules/nuxt/dist/pages/runtime/page")['default']
 export const NoScript: typeof import("../node_modules/.pnpm/nuxt@4.4.8_@babel+plugin-syntax-jsx@7.28.6_@babel+core@7.29.0__@babel+plugin-syntax-typ_0299952b5bb3a6a50ea297490c857f59/node_modules/nuxt/dist/head/runtime/components")['NoScript']
 export const Link: typeof import("../node_modules/.pnpm/nuxt@4.4.8_@babel+plugin-syntax-jsx@7.28.6_@babel+core@7.29.0__@babel+plugin-syntax-typ_0299952b5bb3a6a50ea297490c857f59/node_modules/nuxt/dist/head/runtime/components")['Link']
 export const Base: typeof import("../node_modules/.pnpm/nuxt@4.4.8_@babel+plugin-syntax-jsx@7.28.6_@babel+core@7.29.0__@babel+plugin-syntax-typ_0299952b5bb3a6a50ea297490c857f59/node_modules/nuxt/dist/head/runtime/components")['Base']
@@ -218,6 +219,7 @@ export const ColorScheme: typeof import("../node_modules/.pnpm/@nuxtjs+color-mod
 export const NuxtIsland: typeof import("../node_modules/.pnpm/nuxt@4.4.8_@babel+plugin-syntax-jsx@7.28.6_@babel+core@7.29.0__@babel+plugin-syntax-typ_0299952b5bb3a6a50ea297490c857f59/node_modules/nuxt/dist/app/components/nuxt-island")['default']
 export const LazyResourceGlossaryEditor: LazyComponent<typeof import("../app/components/resource/glossary-editor.vue")['default']>
 export const LazyResourceGlossaryTerm: LazyComponent<typeof import("../app/components/resource/glossary-term.vue")['default']>
+export const LazyUndrawNoData: LazyComponent<typeof import("../app/components/undraw-no-data.vue")['default']>
 export const LazyProseA: LazyComponent<typeof import("../node_modules/.pnpm/@nuxt+ui@4.9.0_44e6ca8978275940d5af8c3c45526687/node_modules/@nuxt/ui/dist/runtime/components/prose/A.vue")['default']>
 export const LazyProseAccordion: LazyComponent<typeof import("../node_modules/.pnpm/@nuxt+ui@4.9.0_44e6ca8978275940d5af8c3c45526687/node_modules/@nuxt/ui/dist/runtime/components/prose/Accordion.vue")['default']>
 export const LazyProseAccordionItem: LazyComponent<typeof import("../node_modules/.pnpm/@nuxt+ui@4.9.0_44e6ca8978275940d5af8c3c45526687/node_modules/@nuxt/ui/dist/runtime/components/prose/AccordionItem.vue")['default']>
@@ -405,7 +407,7 @@ export const LazyNuxtRouteAnnouncer: LazyComponent<typeof import("../node_module
 export const LazyNuxtAnnouncer: LazyComponent<typeof import("../node_modules/.pnpm/nuxt@4.4.8_@babel+plugin-syntax-jsx@7.28.6_@babel+core@7.29.0__@babel+plugin-syntax-typ_0299952b5bb3a6a50ea297490c857f59/node_modules/nuxt/dist/app/components/nuxt-announcer")['default']>
 export const LazyNuxtImg: LazyComponent<typeof import("../node_modules/.pnpm/nuxt@4.4.8_@babel+plugin-syntax-jsx@7.28.6_@babel+core@7.29.0__@babel+plugin-syntax-typ_0299952b5bb3a6a50ea297490c857f59/node_modules/nuxt/dist/app/components/nuxt-stubs")['NuxtImg']>
 export const LazyNuxtPicture: LazyComponent<typeof import("../node_modules/.pnpm/nuxt@4.4.8_@babel+plugin-syntax-jsx@7.28.6_@babel+core@7.29.0__@babel+plugin-syntax-typ_0299952b5bb3a6a50ea297490c857f59/node_modules/nuxt/dist/app/components/nuxt-stubs")['NuxtPicture']>
-export const LazyNuxtPage: LazyComponent<typeof import("../node_modules/.pnpm/nuxt@4.4.8_@babel+plugin-syntax-jsx@7.28.6_@babel+core@7.29.0__@babel+plugin-syntax-typ_0299952b5bb3a6a50ea297490c857f59/node_modules/nuxt/dist/pages/runtime/page-placeholder")['default']>
+export const LazyNuxtPage: LazyComponent<typeof import("../node_modules/.pnpm/nuxt@4.4.8_@babel+plugin-syntax-jsx@7.28.6_@babel+core@7.29.0__@babel+plugin-syntax-typ_0299952b5bb3a6a50ea297490c857f59/node_modules/nuxt/dist/pages/runtime/page")['default']>
 export const LazyNoScript: LazyComponent<typeof import("../node_modules/.pnpm/nuxt@4.4.8_@babel+plugin-syntax-jsx@7.28.6_@babel+core@7.29.0__@babel+plugin-syntax-typ_0299952b5bb3a6a50ea297490c857f59/node_modules/nuxt/dist/head/runtime/components")['NoScript']>
 export const LazyLink: LazyComponent<typeof import("../node_modules/.pnpm/nuxt@4.4.8_@babel+plugin-syntax-jsx@7.28.6_@babel+core@7.29.0__@babel+plugin-syntax-typ_0299952b5bb3a6a50ea297490c857f59/node_modules/nuxt/dist/head/runtime/components")['Link']>
 export const LazyBase: LazyComponent<typeof import("../node_modules/.pnpm/nuxt@4.4.8_@babel+plugin-syntax-jsx@7.28.6_@babel+core@7.29.0__@babel+plugin-syntax-typ_0299952b5bb3a6a50ea297490c857f59/node_modules/nuxt/dist/head/runtime/components")['Base']>

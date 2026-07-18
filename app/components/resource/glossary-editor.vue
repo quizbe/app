@@ -141,9 +141,10 @@ effect(() => {
             v-if="!media_selector.fetching_stored"
             class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-2 min-h-46"
           >
-            <button
+            <div
               v-for="[key, media] of Object.entries(media_selector.stored)"
               :key="key"
+              role="none"
               :class="[
                 'aspect-square grid place-items-center group hover:bg-primary/15 bg-accented sm:bg-transparent transition relative rounded sm:ring-2 ring-transparent hover:ring-primary'
               ]"
@@ -171,7 +172,7 @@ effect(() => {
               >
                 <UIcon name="i-ph:x" class="size-4" />
               </button>
-            </button>
+            </div>
           </div>
 
           <div v-else class="h-48 flex flex-col items-center justify-center">

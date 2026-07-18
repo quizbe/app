@@ -10,7 +10,7 @@
 /// <reference path="../node_modules/.pnpm/@nuxt+vite-builder@4.4.8_@babel+plugin-syntax-jsx@7.28.6_@babel+core@7.29.0__eslint@10._3d44df4ae0bf250d7523372351812020/node_modules/@nuxt/vite-builder/dist/index.d.mts" />
 /// <reference path="../node_modules/.pnpm/@nuxt+nitro-server@4.4.8_@babel+plugin-syntax-typescript@7.28.6_@babel+core@7.29.0__db0_f20831345e2c552b1ef6f87bf690f2c1/node_modules/@nuxt/nitro-server/dist/index.d.mts" />
 /// <reference path="eslint-typegen.d.ts" />
-/// <reference path="types/middleware.d.ts" />
+/// <reference path="types/nitro-middleware.d.ts" />
 /// <reference path="schema/nuxt.schema.d.ts" />
 
 export {}
