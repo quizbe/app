@@ -3,12 +3,13 @@ import type { Glossary } from '~/composables/schemas'
 import UndrawNoData from '../undraw-no-data.vue'
 import { uid } from 'uid/secure'
 import { breakpointsTailwind, useBreakpoints } from '@vueuse/core'
+import { imageMeta } from 'image-meta'
 
 export type MediaSelector = {
   kind: 'term' | 'defi'
   index: number
   tabs: string
-  stored: Record<string, string>
+  stored: Record<string, ResourceMedia>
   fetching_stored: boolean
   files: File[]
 }
@@ -22,10 +23,22 @@ const glossary = defineModel<Glossary>({ required: true })
 const media_selector = reactive<MediaSelector>({
   kind: 'defi',
   index: -1,
-  tabs: '0',
+  tabs: 'all',
   stored: {},
   fetching_stored: true,
   files: []
+})
+
+const filtered_stored_media = computed(() => {
+  return Object.entries(media_selector.stored).filter(([_, { data }]) => {
+    if (media_selector.tabs === 'all') return true
+    if (media_selector.tabs === 'image' && data.startsWith('data:image'))
+      return true
+    if (media_selector.tabs === 'video' && data.startsWith('data:video'))
+      return true
+    if (media_selector.tabs === 'audio' && data.startsWith('data:audio'))
+      return true
+  })
 })
 
 async function fetchStoredMedia() {
@@ -41,15 +54,28 @@ async function fetchStoredMedia() {
 
 async function uploadMedia() {
   for (const file of media_selector.files) {
+    const media: ResourceMedia = {
+      data: '',
+      type: file.type
+    }
+
+    if (file.type.startsWith('image')) {
+      const meta = imageMeta(new Uint8Array(await file.arrayBuffer()))
+
+      media.height = meta.height
+      media.width = meta.width
+    } else if (file.type.startsWith('audio')) {
+      console.log('AUDIO')
+    }
+
     const reader = new FileReader()
     reader.readAsDataURL(file)
     reader.onload = () => {
       if (!reader.result) return
       const id = uid()
-      const src = reader.result.toString()
-
-      media_selector.stored[id] = src
-      useMediaStorage().set(id, src)
+      media.data = reader.result as string
+      media_selector.stored[id] = media
+      useMediaStorage().set(id, media)
     }
   }
 
@@ -58,10 +84,6 @@ async function uploadMedia() {
 }
 
 onMounted(fetchStoredMedia)
-
-effect(() => {
-  console.log(media_selector)
-})
 </script>
 
 <template>
@@ -124,11 +146,31 @@ effect(() => {
       <UTabs
         v-model="media_selector.tabs"
         :items="[
-          { label: 'All Media', icon: 'i-ph:paperclip', slot: 'all' },
-          { label: 'Images', icon: 'i-ph:image', slot: 'images' },
-          { label: 'Videos', icon: 'i-ph:film-strip', slot: 'video' },
-          { label: 'Audio', icon: 'i-ph:waveform', slot: 'audio' },
-          { label: 'Upload', icon: 'i-ph:upload', slot: 'upload' }
+          {
+            label: 'All Media',
+            icon: 'i-ph:paperclip',
+            slot: 'all',
+            value: 'all'
+          },
+          { label: 'Images', icon: 'i-ph:image', slot: 'all', value: 'image' },
+          {
+            label: 'Videos',
+            icon: 'i-ph:film-strip',
+            slot: 'all',
+            value: 'video'
+          },
+          {
+            label: 'Audio',
+            icon: 'i-ph:waveform',
+            slot: 'all',
+            value: 'audio'
+          },
+          {
+            label: 'Upload',
+            icon: 'i-ph:upload',
+            slot: 'upload',
+            value: 'upload'
+          }
         ]"
       >
         <template #default="{ item }">
@@ -142,7 +184,7 @@ effect(() => {
             class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-2 min-h-46"
           >
             <div
-              v-for="[key, media] of Object.entries(media_selector.stored)"
+              v-for="[key, media] of filtered_stored_media"
               :key="key"
               role="none"
               :class="[
@@ -159,7 +201,12 @@ effect(() => {
                 }
               "
             >
-              <img :src="media" :alt="key" class="pointer-events-none" />
+              <img
+                v-if="media.data.startsWith('data:image')"
+                :src="media.data"
+                :alt="key"
+                class="pointer-events-none"
+              />
 
               <button
                 class="bg-inverted border border-default text-inverted rounded-full size-5 grid place-items-center group-hover:opacity-100 sm:opacity-0 transition absolute left-full top-0 -translate-1/2"

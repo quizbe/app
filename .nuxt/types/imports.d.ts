@@ -223,6 +223,9 @@ declare global {
   // @ts-ignore
   export type { PageMeta } from '../../node_modules/.pnpm/nuxt@4.4.8_@babel+plugin-syntax-jsx@7.28.6_@babel+core@7.29.0__@babel+plugin-syntax-typ_0299952b5bb3a6a50ea297490c857f59/node_modules/nuxt/dist/app/composables/pages'
   import('../../node_modules/.pnpm/nuxt@4.4.8_@babel+plugin-syntax-jsx@7.28.6_@babel+core@7.29.0__@babel+plugin-syntax-typ_0299952b5bb3a6a50ea297490c857f59/node_modules/nuxt/dist/app/composables/pages')
+  // @ts-ignore
+  export type { ResourceMedia } from '../../app/composables/storage'
+  import('../../app/composables/storage')
 }
 // for vue template auto import
 import { UnwrapRef } from 'vue'

@@ -2,6 +2,7 @@
 import { watchDebounced } from '@vueuse/core'
 import { safeParse } from 'valibot'
 import { RESOURCE } from '~/composables/schemas'
+import { cloneDeep } from 'lodash'
 
 const STORAGE_OPTION = {
   localfirst: 'Local First',
@@ -31,7 +32,11 @@ watchDebounced(
   async () => {
     if (!resource.value || loading.value) return
     if (changes_state.value !== 'unsaved') return
-    await useResourceStorage().set(resource.value.id, resource.value)
+
+    const new_res = cloneDeep(resource.value)
+    new_res.updated = Date.now()
+    await useResourceStorage().set(new_res.id, new_res)
+
     changes_state.value = 'saved'
   },
   {

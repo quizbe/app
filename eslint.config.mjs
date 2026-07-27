@@ -12,7 +12,8 @@ export default withNuxt([
       '@stylistic/arrow-parens': 'off',
       'vue/max-attributes-per-line': 'off',
       'vue/block-tag-newline': 'off',
-      'nuxt/nuxt-config-keys-order': 'off'
+      'nuxt/nuxt-config-keys-order': 'off',
+      'vue/operator-linebreak': 'off'
     }
   }
 ])

@@ -33,7 +33,7 @@ export { definePageMeta, PageMeta } from '#app/composables/pages';
 export { defineLazyHydrationComponent } from '#app/composables/lazy-hydration';
 export { createResource, createBlankResource } from '../app/composables/resources';
 export { useResourceState, useLoadingState, useEditingState } from '../app/composables/states';
-export { useQuizbeStorage, useMediaStorage, useResourceStorage } from '../app/composables/storage';
+export { useQuizbeStorage, useMediaStorage, useResourceStorage, ResourceMedia } from '../app/composables/storage';
 export { defineLocale, extendLocale } from '../node_modules/.pnpm/@nuxt+ui@4.9.0_44e6ca8978275940d5af8c3c45526687/node_modules/@nuxt/ui/dist/runtime/composables/defineLocale';
 export { defineShortcuts, extractShortcuts } from '../node_modules/.pnpm/@nuxt+ui@4.9.0_44e6ca8978275940d5af8c3c45526687/node_modules/@nuxt/ui/dist/runtime/composables/defineShortcuts';
 export { useContentSearch } from '../node_modules/.pnpm/@nuxt+ui@4.9.0_44e6ca8978275940d5af8c3c45526687/node_modules/@nuxt/ui/dist/runtime/composables/useContentSearch';
